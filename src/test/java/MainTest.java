@@ -6,6 +6,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import steps.LoginSteps;
+import utils.Retry;
 
 public class MainTest extends BaseTest {
     private LoginSteps loginSteps;
@@ -49,4 +50,9 @@ public class MainTest extends BaseTest {
         loginSteps.login(usename,psw);
     }
 
+    //@Test(retryAnalyzer = Retry.class)
+    //public void retryTest(){
+    //    throw new NullPointerException();
+
+    //}
 }
