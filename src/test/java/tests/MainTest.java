@@ -1,4 +1,7 @@
+package tests;
+
 import baseEntities.BaseTest;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Optional;
@@ -11,7 +14,11 @@ import utils.Retry;
 public class MainTest extends BaseTest {
     private LoginSteps loginSteps;
 
-    @Test
+    @Test(priority = 1, description = "Description for allure report")
+    @Description ("Some details about test")
+    @Issue("AQA07-25")
+    @TmsLink("1")
+    @Severity(SeverityLevel.BLOCKER)
     public void loginPositiveTest(){
         loginSteps = new LoginSteps(driver);
         loginSteps.login(readProperties.getUserName(), readProperties.getPassword());
@@ -49,10 +56,4 @@ public class MainTest extends BaseTest {
         loginSteps = new LoginSteps(driver);
         loginSteps.login(usename,psw);
     }
-
-    //@Test(retryAnalyzer = Retry.class)
-    //public void retryTest(){
-    //    throw new NullPointerException();
-
-    //}
 }
