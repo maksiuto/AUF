@@ -40,4 +40,8 @@ public class Waiters {
             return null;
         }
     }
+
+    public void isElementClickable(WebElement webElement) {
+
+    }
 }
