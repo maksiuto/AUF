@@ -1,4 +1,4 @@
-package tests;
+package tests.GUI;
 
 import baseEntities.BaseTest;
 import org.testng.Assert;
@@ -10,7 +10,7 @@ public class ProjectTest extends BaseTest {
     private ProjectSteps projectSteps;
     private LoginSteps loginSteps;
 
-    @Test
+    @Test(description = "Создание проекта")
     public void createProject() {
      projectSteps = new ProjectSteps(driver);
      loginSteps.login(readProperties.getUserName(), readProperties.getPassword());
@@ -18,14 +18,14 @@ public class ProjectTest extends BaseTest {
      Assert.assertTrue(true);
     }
 
-    @Test
+    @Test(description = "Изменение проекта")
     public void editProject() {
         projectSteps = new ProjectSteps(driver);
         projectSteps.edit("Mike edit");
         Assert.assertTrue(true);
     }
 
-    @Test
+    @Test(description = "Удаление проекта")
     public void deleteProject() {
         projectSteps = new ProjectSteps(driver);
         projectSteps.delete();

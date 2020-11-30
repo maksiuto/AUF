@@ -41,7 +41,11 @@ public class Waiters {
         }
     }
 
-    public void isElementClickable(WebElement webElement) {
-
+    public WebElement isElementClickable(WebElement webElement) {
+        try {
+            return webDriverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+        } catch (TimeoutException ex) {
+            return null;
+        }
     }
 }

@@ -21,7 +21,7 @@ public class ProjectSteps {
         projectPage.setNewProjectButton();
     }
 
-
+    @Step
     public void edit (String text) {
         EditPage editProjectPage = new EditPage(driver, true);
         editProjectPage.setEditButton();
@@ -29,6 +29,7 @@ public class ProjectSteps {
         editProjectPage.setSaveChangesButton();
     }
 
+    @Step
     public void delete() {
         DeletePage deleteProjectPage = new DeletePage(driver, true);
         deleteProjectPage.setDeleteButton();

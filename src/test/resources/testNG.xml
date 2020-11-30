@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="tests.MainTest">
+<suite name="tests.GUI.MainTest">
     <test name="test1" thread-count="2" parallel="methods">
         <classes>
-            <class name="tests.MainTest"/>
+            <class name="tests.GUI.MainTest"/>
             <parameter name="username" value="atrostyanko+aqa07@gmail.com"/>
             <parameter name="psw" value="w3n1bU7F4rxOfnfvrBJL"/>
         </classes>

@@ -2,6 +2,7 @@ package pages;
 
 import baseEntities.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -35,7 +36,7 @@ public class ProjectPage extends BasePage {
         return waiters.getElementBy(NAME_FIELD);
     }
 
-    private WebElement getAddProjectButton() {
+    public WebElement getAddProjectButton() {
         return waiters.getElementBy(ADD_PROJECT_BUTTON);
     }
 
@@ -48,4 +49,13 @@ public class ProjectPage extends BasePage {
     }
 
     public void setAddProjectButton() { getAddProjectButton().submit(); }
+
+    public void clickAddProjectButton() {
+        WebElement webElement = getAddProjectButton();
+//        Actions actions = new Actions(driver);
+//        actions.moveToElement(webElement).click().build().perform();
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true)", webElement);
+        webElement.click();
+    }
 }

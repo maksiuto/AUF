@@ -4,15 +4,24 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import wrappers.UIElement;
 
 public class LoginPage extends BasePage {
 
     private static String ENDPOINT = "/auth/login/";
 
-    protected By emailSelector = By.id("name");
-    protected By passwordSelector = By.id("password");
-    protected By loginSelector = By.id("button_primary");
-    protected By ERROR_MESSAGE_Selector = By.className("error-on-top");
+    @FindBy(id ="name")
+    public WebElement emailSelector;
+
+    @FindBy(id = "password")
+    public WebElement passwordSelector;
+
+    @FindBy(id = "button_primary")
+    public WebElement loginSelector;
+
+    @FindBy(id = "error-on-top")
+    public WebElement ERROR_MESSAGE_Selector;
 
     public LoginPage(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
@@ -24,22 +33,12 @@ public class LoginPage extends BasePage {
     }
 
     public boolean isPageOpened() {
-        return waiters.isElementDisplayed(By.id("button_primary"));
+        return loginSelector.isDisplayed();
     }
 
-    public WebElement getEmailField() {
-        return waiters.getElementBy(emailSelector);
+    public ProjectPage clickLoginButton() {
+         loginSelector.click();
+         return new ProjectPage(driver, false);
     }
 
-    public WebElement getPasswordField() {
-        return waiters.getElementBy(passwordSelector);
-    }
-
-    public WebElement getLoginButton() {
-        return waiters.getElementBy(loginSelector);
-    }
-
-    public WebElement getErrorMessage() {
-        return waiters.getElementBy(ERROR_MESSAGE_Selector);
-    }
 }

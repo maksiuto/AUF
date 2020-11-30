@@ -1,6 +1,7 @@
 package wrappers;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import utils.Waiters;
 
 
@@ -38,6 +39,10 @@ public class UIElement implements WebElement {
             jsExecutor.executeScript("arguments[0].scrollIntoView(true)", webElement);
             waits.isElementClickable(webElement);
             webElement.click();
+//            Actions actions = new Actions(driver);
+//            actions.moveToElement(webElement).build().perform();
+//            waits.isElementClickable(webElement);
+//            webElement.click();
         }
 
     }
